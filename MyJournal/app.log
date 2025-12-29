@@ -1,0 +1,8 @@
+2025-12-29 11:42:09,846 INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-29 11:42:09,892 INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29 11:42:09,898 INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:42:09,948 INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-29 11:42:09,949 INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:42:09,962 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29 11:42:09,969 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-29 11:42:09,979 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

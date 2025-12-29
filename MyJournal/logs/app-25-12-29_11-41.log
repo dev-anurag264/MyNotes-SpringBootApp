@@ -1,0 +1,8 @@
+2025-12-29 11:41:11,624 INFO  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2025-12-29 11:41:11,659 INFO  org.springframework.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29 11:41:11,666 INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:41:11,701 INFO  org.springframework.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-12-29 11:41:11,703 INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:41:11,716 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29 11:41:11,724 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-12-29 11:41:11,730 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

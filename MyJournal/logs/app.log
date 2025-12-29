@@ -1,0 +1,39 @@
+2025-12-29 11:42:10,162 INFO  in.journal.MyJournalApplication - Starting MyJournalApplication using Java 21.0.7 with PID 26788 (C:\Users\TU39\git\repository4\MyJournal\target\classes started by TU39 in C:\Users\TU39\git\repository4\MyJournal)
+2025-12-29 11:42:10,167 INFO  in.journal.MyJournalApplication - The following 1 profile is active: "dev"
+2025-12-29 11:42:10,476 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-29 11:42:10,490 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+2025-12-29 11:42:10,592 INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-29 11:42:10,595 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:42:10,595 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-29 11:42:10,595 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2025-12-29 11:42:10,623 INFO  org.springframework.boot.web.context.servlet.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 451 ms
+2025-12-29 11:42:10,664 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2025-12-29 11:42:10,708 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-29 11:42:10,709 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-12-29 11:42:10,769 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@11bed55d
+2025-12-29 11:42:10,769 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-12-29 11:42:10,777 WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-29 11:42:10,785 INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/JournalEntries]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.4
+	Default catalog/schema: JournalEntries/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-12-29 11:42:10,836 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-29 11:42:10,882 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-29 11:42:10,948 TRACE org.springframework.transaction.annotation.AnnotationTransactionAttributeSource - Adding transactional method 'in.journal.service.UserServiceImpl.deletebyUsername' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-12-29 11:42:10,973 TRACE org.springframework.transaction.annotation.AnnotationTransactionAttributeSource - Adding transactional method 'in.journal.service.JournalService.createEntry' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-12-29 11:42:10,974 TRACE org.springframework.transaction.annotation.AnnotationTransactionAttributeSource - Adding transactional method 'in.journal.service.JournalService.removeEntry' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-12-29 11:42:11,019 WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-29 11:42:11,057 INFO  org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailServiceImp
+2025-12-29 11:42:11,189 WARN  org.springframework.boot.thymeleaf.autoconfigure.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-12-29 11:42:11,240 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-12-29 11:42:11,246 INFO  org.springframework.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-29 11:42:11,251 INFO  in.journal.MyJournalApplication - Started MyJournalApplication in 1.146 seconds (process running for 57.634)
+2025-12-29 11:42:11,254 INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
