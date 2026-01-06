@@ -21,6 +21,9 @@ import lombok.extern.slf4j.Slf4j;
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
 	private UserRepository userrepo;
 	
 	private static final PasswordEncoder passwordencoder = new BCryptPasswordEncoder();
@@ -33,7 +36,8 @@ public class UserServiceImpl implements UserService{
 			user.setPassword(passwordencoder.encode(user.getPassword()));
 			user.setRoles(Arrays.asList("USER"));
 			return userrepo.save(user);
-		}
+			
+		 }
 		catch(Exception e) {
 			logger.info("Logger says info not saved for the user");
 			return null;

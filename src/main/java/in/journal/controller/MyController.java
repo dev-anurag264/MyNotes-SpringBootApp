@@ -24,8 +24,10 @@ import in.journal.entity.Journal;
 import in.journal.entity.User;
 import in.journal.service.JournalService;
 import in.journal.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
+@Slf4j
 @RequestMapping("/myjournal")
 public class MyController {
 
@@ -44,6 +46,7 @@ public class MyController {
 			return ResponseEntity.ok().body(journal);
 		} catch (Exception e) {
 			return ResponseEntity.notFound().build();
+		
 		}
 	}
 

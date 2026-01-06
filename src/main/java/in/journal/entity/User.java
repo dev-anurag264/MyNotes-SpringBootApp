@@ -28,6 +28,18 @@ public class User {
 	@NotNull
 	private String password;
 	
+	@Column
+	private String email;
+	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public User() {
 		
 	}
@@ -84,8 +96,5 @@ public class User {
 	public void setJournal(List<Journal> journal) {
 		this.journal = journal;
 	}
-	
-	
-	
 	
 }

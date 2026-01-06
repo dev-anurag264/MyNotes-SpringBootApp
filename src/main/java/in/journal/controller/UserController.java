@@ -12,9 +12,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import in.journal.api.response.QuoteResponse;
+import in.journal.api.response.WeatherResponse;
 import in.journal.entity.User;
 import in.journal.repository.UserRepository;
+import in.journal.service.QuoteService;
 import in.journal.service.UserService;
+import in.journal.service.WeatherService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,59 +28,64 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @RestController
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserService userservice;
 
-	@Autowired
-	private  UserRepository userrepository;
 	
+	
+	@Autowired
+	private UserRepository userrepository;
+
+	@Autowired
+	private WeatherService weatherservice;
+
+	@Autowired
+	private QuoteService quoteservice;
+
 //	@PostMapping("/user")
 //	public User createUser(@RequestBody User user) {
 //		return userservice.createUser(user);
 //	}
 //		
-	
+
 	@PostMapping("/newUser")
 	public void registerUser(@RequestBody User user) {
 		userservice.saveExisting(user);
 	}
-	
-	
+
 	@GetMapping("/alluser")
 	public List<User> getUser() {
 		return userservice.getAllUser();
 	}
-	
+
 	@GetMapping("/user/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable Long id){
-		 User user=userservice.getUserById(id).orElse(null);
-		 if(user!=null) {
-			 return ResponseEntity.ok().body(user);
-		 }
-		 else {
-			 return ResponseEntity.notFound().build();
-		 }
+	public ResponseEntity<User> getUserById(@PathVariable Long id) {
+		User user = userservice.getUserById(id).orElse(null);
+		if (user != null) {
+			return ResponseEntity.ok().body(user);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
-	//Edit here -> TODO
-	
+	// Edit here -> TODO
+
 	@PutMapping
-	public ResponseEntity<?> updateUser(@RequestBody User user){
-		// Since user is already logged in, we hit the put request with  the users name and password" using ->
-		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
-		String username=authentication.getName();
-		User userinDb=userservice.findByUsername(username);
-		
-			userinDb.setUsername(user.getUsername());
-			userinDb.setPassword(user.getPassword());
-			userservice.saveExisting(userinDb);
-			return ResponseEntity.ok().build();
+	public ResponseEntity<?> updateUser(@RequestBody User user) {
+		// Since user is already logged in, we hit the put request with the users name
+		// and password" using ->
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String username = authentication.getName();
+		User userinDb = userservice.findByUsername(username);
+
+		userinDb.setUsername(user.getUsername());
+		userinDb.setPassword(user.getPassword());
+		userservice.saveExisting(userinDb);
+		return ResponseEntity.ok().build();
 	}
-		
+
 //	@DeleteMapping("/user/{id}")
 //	public ResponseEntity<Void> deleteUser(@PathVariable Long id){
 //		userservice.removeUser(id);
@@ -85,11 +94,34 @@ public class UserController {
 //	}
 //	
 	@DeleteMapping
-	public ResponseEntity<Void> deleteUser(){
+	public ResponseEntity<Void> deleteUser() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		userrepository.deleteByUsername(auth.getName());
 		return ResponseEntity.noContent().build();
-		
+
 	}
-	
+
+	@GetMapping
+	public ResponseEntity<?> greetings() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		WeatherResponse resp = weatherservice.getWeather("Mumbai");
+		//QuoteResponse quote = quoteservice.getQuote();
+		StringBuilder response = new StringBuilder();
+		response.append("Hi ").append(auth.getName());
+		if (resp != null) {
+			response.append("Temperature: "+resp.getCurrent().getTemperature()).append(",feels like ").append(resp.getCurrent().getFeelslike()).append("°C. ");
+
+			if (resp.getCurrent().getFeelslike() < 20) {
+				response.append("It's too chilly out there! ");
+			} else {
+				response.append("Weather feels nice and comfy.");
+			}
+		}
+//		if (quote != null) {
+//			response.append("\n\nQuote of the moment:\n").append("\"").append(quote.getQuote()).append("\"")
+//					.append("\n- ").append(quote.getAuthor());
+//		}
+		return ResponseEntity.ok(response.toString());
+	}
+
 }
